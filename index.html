@@ -10,7 +10,7 @@
          ===================================================== -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&amp;family=Great+Vibes&family=Mea+Culpa&family=Allura&family=Tangerine:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <!-- =====================================================
          CSS
          ===================================================== -->
@@ -20,18 +20,18 @@
            ===================================================== */
 
       :root {
-        --cream: #f8f1e8;
-        --cream-light: #fcf8f2;
-        --paper: #fffaf4;
-        --text: #554a45;
-        --text-soft: #756963;
-        --muted: #91817a;
+        --cream: #F7F1E3;
+        --cream-light: #F7F1E3;
+        --paper: #F7F1E3;
+        --text: #172A46;
+        --text-soft: #172A46;
+        --muted: #172A46;
         --rose: #c99a9b;
         --rose-soft: #d9b4ad;
         --rose-dark: #a8787a;
         --peach: #ddb49d;
-        --gold: #c8aa78;
-        --gold-soft: #dbc9a5;
+        --gold: #172A46;
+        --gold-soft: #172A46;
         --line: #ead8ce;
         --shadow: 0 25px 70px rgba(91, 70, 60, 0.08);
       }
@@ -63,7 +63,7 @@
             rgba(201, 154, 155, 0.12),
             transparent 32%
           ),
-          linear-gradient(135deg, #f8f1e8, #fbf6ef);
+          linear-gradient(135deg, #F7F1E3, #F7F1E3);
         font-family: "Cormorant Garamond", Georgia, serif;
         font-size: 19px;
         line-height: 1.7;
@@ -312,7 +312,7 @@
 
       .enter-button:hover {
         background: var(--rose-soft);
-        color: #fffaf6;
+        color: #F7F1E3;
         transform: translateY(-2px);
         box-shadow: 0 8px 22px rgba(150, 110, 100, 0.12);
       }
@@ -373,7 +373,7 @@
       }
 
       .pain {
-        color: #9b7b72;
+        color: #172A46;
         font-style: italic;
       }
 
@@ -539,7 +539,321 @@
           border: none;
         }
       }
+    
+
+      /* =====================================================
+         ДОБАВЕНО: ЛЮБОВНИ ПИСМА
+         ===================================================== */
+
+      .love-letter-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 5000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(85, 74, 69, 0.30);
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+      }
+
+      .love-letter-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .love-letter-card {
+        font-family: "Great Vibes", cursive;
+        position: relative;
+        width: min(760px, 100%);
+        max-height: calc(100vh - 48px);
+        overflow-y: auto;
+        padding: 58px clamp(25px, 7vw, 70px);
+        background: rgba(255, 250, 244, 0.98);
+        border: 1px solid rgba(201, 154, 155, 0.18);
+        box-shadow: 0 30px 90px rgba(91, 70, 60, 0.20);
+        color: var(--text);
+        transform: translateY(18px) scale(0.985);
+        transition: transform 0.35s ease;
+      }
+
+      .love-letter-overlay.open .love-letter-card {
+        font-family: "Great Vibes", cursive;
+        transform: translateY(0) scale(1);
+      }
+
+      .love-letter-close {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid rgba(168, 120, 122, 0.22);
+        background: rgba(255, 250, 244, 0.90);
+        color: var(--rose-dark);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 25px;
+        line-height: 1;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      .love-letter-close:hover {
+        background: rgba(217, 180, 173, 0.35);
+        transform: scale(1.04);
+      }
+
+      .love-letter-card h3 {
+        font-family: "Great Vibes", cursive;
+        margin: 0 0 34px;
+        font-family: "Great Vibes", cursive;
+        font-size: clamp(46px, 8vw, 68px);
+        font-weight: 400;
+        color: var(--rose-dark);
+        text-align: center;
+      }
+
+      .love-letter-card p {
+        margin: 0 0 20px;
+        font-size: 19px;
+        line-height: 1.85;
+      }
+
+      .love-letter-card .love-letter-signature {
+        font-family: "Great Vibes", cursive;
+        margin-top: 42px;
+        text-align: right;
+        font-family: "Great Vibes", cursive;
+        font-size: 42px;
+        color: var(--text);
+      }
+
+      .love-letter-card .love-letter-ps {
+        margin-top: 34px;
+        padding-top: 25px;
+        border-top: 1px solid var(--line);
+        color: var(--rose-dark);
+        font-style: italic;
+      }
+
+      body.love-letter-open {
+        overflow: hidden;
+      }
+
+      @media (max-width: 650px) {
+        .love-letter-overlay {
+          padding: 14px;
+        }
+
+        .love-letter-card {
+        font-family: "Great Vibes", cursive;
+          max-height: calc(100vh - 28px);
+          padding: 52px 24px 38px;
+        }
+
+        .love-letter-card p {
+          font-size: 17px;
+          line-height: 1.75;
+        }
+      }
+
+      /* =====================================================
+         ЛЮБОВНО ПИСМО — ВИЗИЯ КАТО ОРИГИНАЛНИЯ PDF
+         ===================================================== */
+      .love-letter-overlay {
+        background: rgba(40, 38, 34, 0.34);
+      }
+
+      .love-letter-card {
+        width: min(900px, 100%);
+        background: #f7f0e1;
+        color: #102b4f;
+        font-family: "Great Vibes", cursive;
+        padding: 62px clamp(30px, 6vw, 62px);
+        border: none;
+        box-shadow: 0 30px 90px rgba(40, 35, 30, 0.22);
+      }
+
+      .love-letter-card h3 {
+        margin: 0 0 30px;
+        text-align: left;
+        color: #8B1E2D;
+        font-family: "Great Vibes", cursive;
+        font-size: 29px;
+        font-weight: 500;
+        line-height: 1.25;
+      }
+
+      .love-letter-card p {
+        margin: 0 0 25px;
+        color: #102b4f;
+        font-family: "Great Vibes", cursive;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.45;
+      }
+
+      .love-letter-card .pdf-red {
+        color: #8B1E2D;
+      }
+
+      .love-letter-card .love-letter-signature {
+        margin: 42px 0 42px;
+        text-align: left;
+        color: #102b4f;
+        font-family: "Great Vibes", cursive;
+        font-size: 27px;
+        font-weight: 500;
+      }
+
+      .love-letter-card .love-letter-ps {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+        color: #102b4f;
+        font-style: normal;
+      }
+
+      .love-letter-close {
+        color: #8B1E2D;
+        background: rgba(247, 240, 225, 0.92);
+      }
+
+      @media (max-width: 650px) {
+        .love-letter-card {
+          padding: 54px 25px 38px;
+        }
+
+        .love-letter-card h3 {
+          font-size: 26px;
+        }
+
+        .love-letter-card p {
+          font-size: 21px;
+          line-height: 1.5;
+        }
+      }
+
+      .love-letter-card p.red-separate {
+        display: block !important;
+        color: #8B1E2D !important;
+        margin: 30px 0 24px 0 !important;
+      }
+
+      .love-letter-given-date {
+        position: static;
+        width: 100%;
+        margin: 12px 0 0;
+        padding-right: 18%;
+        text-align: right;
+        color: #172A46;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 15px;
+        font-style: italic;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 650px) {
+        .love-letter-given-date {
+          margin-top: 10px;
+          padding-right: 12%;
+        }
+      }
+
     </style>
+<style id="love-letter-dancing-script-force">
+  .love-letter-card,
+  .love-letter-card *,
+  .love-letter-card h3,
+  .love-letter-card p,
+  .love-letter-card span,
+  .love-letter-card div,
+  .love-letter-card .love-letter-signature,
+  .love-letter-card .love-letter-ps {
+    font-family: "Great Vibes", cursive !important;
+  }
+</style>
+<style id="love-letter-pdf-layout-force">
+  .love-letter-card {
+    width: min(900px, 100%) !important;
+    padding: 58px 58px 52px !important;
+    font-family: "Great Vibes", cursive !important;
+  }
+
+  .love-letter-card h3 {
+    margin: 0 0 26px 0 !important;
+    font-family: "Great Vibes", cursive !important;
+    font-size: 29px !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+  }
+
+  .love-letter-card p {
+    margin: 0 0 22px 0 !important;
+    font-family: "Great Vibes", cursive !important;
+    font-size: 24px !important;
+    line-height: 1.42 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+  }
+
+  .love-letter-card .love-letter-signature {
+    margin: 34px 0 38px 0 !important;
+    font-family: "Great Vibes", cursive !important;
+    font-size: 27px !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+  }
+
+  .love-letter-card .love-letter-ps {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: "Great Vibes", cursive !important;
+    font-size: 24px !important;
+    line-height: 1.42 !important;
+  }
+
+  @media (max-width: 650px) {
+    .love-letter-card {
+      padding: 52px 25px 38px !important;
+    }
+
+    .love-letter-card h3 {
+      font-size: 26px !important;
+      margin-bottom: 23px !important;
+    }
+
+    .love-letter-card p,
+    .love-letter-card .love-letter-ps {
+      font-size: 21px !important;
+      line-height: 1.42 !important;
+      margin-bottom: 20px !important;
+    }
+
+    .love-letter-card .love-letter-signature {
+      font-size: 25px !important;
+      margin: 30px 0 34px !important;
+    }
+  }
+</style>
+
+<style id="love-letter-mea-culpa-force">
+  .love-letter-card,
+  .love-letter-card *,
+  .love-letter-card h3,
+  .love-letter-card p,
+  .love-letter-card span,
+  .love-letter-card div,
+  .love-letter-card .love-letter-signature,
+  .love-letter-card .love-letter-ps {
+    font-family: "Allura", cursive !important;
+  }
+</style>
+
 </head>
 <body>
 <!-- =====================================================
@@ -557,7 +871,7 @@
       </button>
 <nav aria-hidden="true" class="dropdown-menu" id="dropdownMenu">
 <button class="menu-item" onclick="toggleLanguage()"><span class="menu-icon">🌐</span><span id="languageText">🇬🇧 EN</span></button>
-<button class="menu-item" onclick="toggleMusic()">
+<button class="menu-item" onclick="openLoveLetter()"><span class="menu-icon">💌</span><span id="loveLettersText">Любовни писма</span></button><button class="menu-item" onclick="toggleMusic()">
 <span class="menu-icon" id="musicIcon"> ♫ </span>
 <span id="musicText"> Музика </span>
 </button>
@@ -946,6 +1260,22 @@
 <!-- =====================================================
          JAVASCRIPT
          ===================================================== -->
+<div aria-hidden="true" class="love-letter-overlay" id="loveLetterOverlay">
+<article aria-labelledby="loveLetterHeading" aria-modal="true" class="love-letter-card" role="dialog"><button aria-label="Close" class="love-letter-close" onclick="closeLoveLetter()" type="button">×</button>
+<h3 id="loveLetterHeading">My Love,</h3>
+<p>I’m writing this letter not to blame you, pressure you, or make you feel guilty. I’m writing because there are things I simply can’t leave unsaid.</p>
+<p class="pdf-red red-separate">I miss you.</p><p>I miss having you beside me, our conversations, our little moments, and the feeling of sharing my life with you.</p>
+<p>I know that a lot of things built up between us. I know that we hurt each other, and I know that I made mistakes. I have had a lot of time to think about those mistakes, and I am sorry for the ways in which I hurt you.</p>
+<p class="pdf-red red-separate">I don't expect you to forget what happened, and I don't expect you to make any decision now.</p><p>I know that we both need time and space to understand what happened between us and what we really want.</p>
+<p>I only want you to know that my love for you was real, and it still is.</p>
+<p>If one day, after we have both had the time to breathe and think, you feel that you would like to talk, I would be willing to sit down with you calmly — without blame, without pride, and without keeping score of the past.</p>
+<p>I don't know what the future holds for us.<br/>But I hope that whatever happens, we can remember that what we had was real and that we mattered to each other.</p>
+<p class="pdf-red red-separate">I love you.</p>
+<div class="love-letter-signature">Niki</div>
+<p class="love-letter-ps">P.S. The headphones are your birthday gift from me. You didn't need to leave them behind. They are yours, and so is my love for you.</p>
+        <div class="love-letter-given-date">14.08.2026</div>
+</article>
+</div>
 <script>
       /* =====================================================
            МЕНЮ
@@ -1205,6 +1535,75 @@
         setLanguage(currentLanguage === "bg" ? "en" : "bg");
         closeMenu();
       }
-</script>
+
+
+      /* =====================================================
+         ДОБАВЕНО: ЛЮБОВНИ ПИСМА
+         ===================================================== */
+
+      const loveLetterOverlay = document.getElementById("loveLetterOverlay");
+      const loveLettersText = document.getElementById("loveLettersText");
+
+      function openLoveLetter() {
+        startLoveLetterMusic();
+        closeMenu();
+        loveLetterOverlay.classList.add("open");
+        loveLetterOverlay.setAttribute("aria-hidden", "false");
+        document.body.classList.add("love-letter-open");
+      }
+
+      function closeLoveLetter() {
+        loveLetterOverlay.classList.remove("open");
+        loveLetterOverlay.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("love-letter-open");
+      }
+
+      loveLetterOverlay.addEventListener("click", function(event) {
+        if (event.target === loveLetterOverlay) {
+          closeLoveLetter();
+        }
+      });
+
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && loveLetterOverlay.classList.contains("open")) {
+          closeLoveLetter();
+        }
+      });
+
+      const originalSetLanguage = setLanguage;
+
+      setLanguage = function(lang) {
+        originalSetLanguage(lang);
+        loveLettersText.textContent = lang === "en" ? "Love Letters" : "Любовни писма";
+      };
+
+      /* =====================================================
+           LOVE LETTER MUSIC
+           Starts the existing romantic melody when the
+           "Love Letters" section is opened.
+         ===================================================== */
+      function startLoveLetterMusic() {
+        const loveMusic = document.getElementById("backgroundMusic");
+        if (!loveMusic) return;
+
+        loveMusic.volume = 0.1;
+        loveMusic.currentTime = 0;
+
+        loveMusic.play()
+          .then(() => {
+            if (typeof musicText !== "undefined" && musicText) {
+              musicText.textContent =
+                document.documentElement.lang === "en"
+                  ? "Stop music"
+                  : "Спри музиката";
+            }
+            if (typeof musicIcon !== "undefined" && musicIcon) {
+              musicIcon.textContent = "♫";
+            }
+          })
+          .catch(() => {});
+      }
+
+    </script>
 </body>
 </html>
