@@ -1,49 +1,98 @@
 <!DOCTYPE html>
 <html lang="bg">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>За Ейвъри — от Ники</title>
 
-    <!-- Романтични шрифтове -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap"
-          rel="stylesheet">
+    <!-- =====================================================
+         ШРИФТОВЕ
+         ===================================================== -->
 
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         CSS
+         ===================================================== -->
 
     <style>
 
         /* =====================================================
-           ОСНОВНИ ЦВЕТОВЕ
+           ЦВЕТОВА ПАЛИТРА
            ===================================================== */
 
         :root {
 
-            --cream: #fffaf5;
-            --paper: #fffdfb;
+            --cream:
+                #f8f1e8;
 
-            --text: #3d3432;
-            --muted: #806f69;
+            --cream-light:
+                #fcf8f2;
 
-            --rose: #b86f7b;
-            --rose-dark: #995866;
+            --paper:
+                #fffaf4;
 
-            --peach: #d69a82;
+            --text:
+                #554a45;
 
-            --gold: #c9a05a;
+            --text-soft:
+                #756963;
 
-            --line: #e8c4c1;
+            --muted:
+                #91817a;
+
+            --rose:
+                #c99a9b;
+
+            --rose-soft:
+                #d9b4ad;
+
+            --rose-dark:
+                #a8787a;
+
+            --peach:
+                #ddb49d;
+
+            --gold:
+                #c8aa78;
+
+            --gold-soft:
+                #dbc9a5;
+
+            --line:
+                #ead8ce;
 
             --shadow:
-                0 25px 80px rgba(70, 45, 40, 0.10);
+                0 25px 70px
+                rgba(91, 70, 60, 0.08);
         }
 
 
         /* =====================================================
-           RESET
+           ОСНОВА
            ===================================================== */
 
         * {
@@ -52,126 +101,175 @@
 
 
         html {
-            scroll-behavior: smooth;
+
+            scroll-behavior:
+                smooth;
         }
 
 
         body {
 
-            margin: 0;
+            margin:
+                0;
 
-            color: var(--text);
+            min-height:
+                100vh;
+
+            color:
+                var(--text);
 
             background:
 
                 radial-gradient(
-                    circle at 15% 10%,
-                    rgba(214, 154, 130, 0.14),
-                    transparent 28%
-                ),
-
-                radial-gradient(
-                    circle at 85% 85%,
-                    rgba(184, 111, 123, 0.12),
+                    circle at 12% 12%,
+                    rgba(221, 180, 157, 0.14),
                     transparent 30%
                 ),
 
-                var(--cream);
+                radial-gradient(
+                    circle at 88% 82%,
+                    rgba(201, 154, 155, 0.12),
+                    transparent 32%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f8f1e8,
+                    #fbf6ef
+                );
 
             font-family:
                 "Cormorant Garamond",
                 Georgia,
                 serif;
 
-            font-size: 19px;
+            font-size:
+                19px;
 
-            line-height: 1.65;
-
-            min-height: 100vh;
+            line-height:
+                1.7;
         }
 
 
         /* =====================================================
-           ЛЕК ТЕКСТУРЕН ФОН
+           ДЕЛИКАТНА ТЕКСТУРА
            ===================================================== */
 
         body::before {
 
-            content: "";
+            content:
+                "";
 
-            position: fixed;
+            position:
+                fixed;
 
-            inset: 0;
+            inset:
+                0;
 
-            pointer-events: none;
+            pointer-events:
+                none;
 
-            opacity: 0.22;
+            opacity:
+                0.10;
 
             background-image:
+
                 radial-gradient(
-                    rgba(120, 90, 80, 0.18) 0.5px,
+                    rgba(120, 95, 85, 0.12)
+                    0.5px,
                     transparent 0.5px
                 );
 
-            background-size: 5px 5px;
+            background-size:
+                6px 6px;
 
-            z-index: 0;
+            z-index:
+                0;
         }
 
 
         /* =====================================================
-           ГЛАВЕН ЕКРАН
+           АУДИО
+           ===================================================== */
+
+        audio {
+
+            display:
+                none;
+        }
+
+
+        /* =====================================================
+           НАЧАЛЕН ЕКРАН
            ===================================================== */
 
         .hero-section {
 
-            min-height: 100vh;
+            min-height:
+                100vh;
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            justify-content:
+                center;
 
-            justify-content: center;
+            align-items:
+                center;
 
-            padding: 30px 18px;
+            padding:
+                30px 18px;
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 1;
+            z-index:
+                1;
         }
 
 
         .hero {
 
-            width: min(920px, 100%);
+            width:
+                min(920px, 100%);
 
-            min-height: 88vh;
+            min-height:
+                88vh;
 
-            display: flex;
+            display:
+                flex;
 
-            flex-direction: column;
+            flex-direction:
+                column;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            align-items: center;
+            align-items:
+                center;
 
-            text-align: center;
+            text-align:
+                center;
 
-            padding: 70px 30px;
+            padding:
+                70px 30px;
 
             background:
-                rgba(255, 253, 251, 0.82);
+                rgba(255, 250, 244, 0.84);
 
             border:
                 1px solid
-                rgba(184, 111, 123, 0.18);
+                rgba(201, 154, 155, 0.14);
 
-            box-shadow: var(--shadow);
+            box-shadow:
+                0 25px 70px
+                rgba(91, 70, 60, 0.07);
 
-            backdrop-filter: blur(6px);
+            backdrop-filter:
+                blur(7px);
 
             animation:
-                heroAppear 2s ease forwards;
+                heroAppear 1.8s ease forwards;
         }
 
 
@@ -179,20 +277,20 @@
 
             from {
 
-                opacity: 0;
+                opacity:
+                    0;
 
                 transform:
-                    translateY(25px);
-
+                    translateY(20px);
             }
 
             to {
 
-                opacity: 1;
+                opacity:
+                    1;
 
                 transform:
                     translateY(0);
-
             }
         }
 
@@ -203,14 +301,20 @@
 
         .ornament {
 
-            color: var(--gold);
+            color:
+                var(--gold);
 
-            letter-spacing: 12px;
+            letter-spacing:
+                10px;
 
-            font-size: 20px;
+            font-size:
+                18px;
+
+            opacity:
+                0.8;
 
             animation:
-                floating 4s ease-in-out infinite;
+                floating 5s ease-in-out infinite;
         }
 
 
@@ -226,7 +330,7 @@
             50% {
 
                 transform:
-                    translateY(-5px);
+                    translateY(-4px);
             }
         }
 
@@ -237,57 +341,71 @@
 
         .hero h1 {
 
-            margin: 25px 0 8px;
+            margin:
+                24px 0 10px;
 
             font-family:
                 "Great Vibes",
                 cursive;
 
             font-size:
-                clamp(70px, 12vw, 115px);
+                clamp(70px, 12vw, 112px);
 
-            font-weight: 400;
+            font-weight:
+                400;
 
             color:
                 var(--rose-dark);
-        }
 
-
-        .subtitle {
-
-            max-width: 650px;
-
-            color:
-                var(--muted);
-
-            font-size: 23px;
-
-            font-style: italic;
-
-            line-height: 1.5;
+            opacity:
+                0.9;
         }
 
 
         /* =====================================================
-           БУТОН
+           ПОДЗАГЛАВИЕ
+           ===================================================== */
+
+        .subtitle {
+
+            max-width:
+                650px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                22px;
+
+            font-style:
+                italic;
+
+            line-height:
+                1.55;
+        }
+
+
+        /* =====================================================
+           БУТОН "ПРОЧЕТИ ПИСМОТО"
            ===================================================== */
 
         .enter-button {
 
-            margin-top: 40px;
+            margin-top:
+                38px;
 
             padding:
-                14px 32px;
+                13px 30px;
 
             border:
                 1px solid
-                var(--rose);
+                var(--rose-soft);
 
             border-radius:
                 50px;
 
             background:
-                transparent;
+                rgba(255, 250, 244, 0.65);
 
             color:
                 var(--rose-dark);
@@ -296,118 +414,55 @@
                 "Cormorant Garamond",
                 serif;
 
-            font-size: 19px;
+            font-size:
+                19px;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             transition:
-                all 0.3s ease;
+                all 0.35s ease;
         }
 
 
         .enter-button:hover {
 
             background:
-                var(--rose);
+                var(--rose-soft);
 
             color:
-                white;
+                #fffaf6;
 
             transform:
-                translateY(-3px);
+                translateY(-2px);
 
             box-shadow:
-                0 10px 25px
-                rgba(184, 111, 123, 0.25);
+                0 8px 22px
+                rgba(150, 110, 100, 0.12);
+        }
+
+
+        .enter-button:active {
+
+            transform:
+                translateY(0);
         }
 
 
         /* =====================================================
-           МУЗИКА
-           ===================================================== */
-
-        .music-player {
-
-            position: fixed;
-
-            top: 20px;
-
-            right: 20px;
-
-            z-index: 100;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-        }
-
-
-        .music-player button {
-
-            width: 50px;
-
-            height: 50px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid
-                rgba(184, 111, 123, 0.35);
-
-            background:
-                rgba(255, 253, 251, 0.94);
-
-            color:
-                var(--rose-dark);
-
-            cursor: pointer;
-
-            font-size: 19px;
-
-            box-shadow:
-                0 8px 25px
-                rgba(70, 45, 40, 0.12);
-
-            transition:
-                0.3s;
-        }
-
-
-        .music-player button:hover {
-
-            transform:
-                scale(1.08);
-
-            background:
-                var(--rose);
-
-            color: white;
-        }
-
-
-        .music-label {
-
-            color:
-                var(--muted);
-
-            font-size:
-                14px;
-        }
-
-
-        /* =====================================================
-           САМОТО ПИСМО
+           ПИСМО
            ===================================================== */
 
         .letter {
 
-            position: relative;
+            position:
+                relative;
 
-            z-index: 1;
+            z-index:
+                1;
 
             width:
                 min(860px, calc(100% - 28px));
@@ -419,15 +474,14 @@
                 80px clamp(25px, 8vw, 90px);
 
             background:
-                rgba(255, 253, 251, 0.94);
+                rgba(255, 250, 244, 0.95);
 
             border:
                 1px solid
-                rgba(184, 111, 123, 0.13);
+                rgba(201, 154, 155, 0.12);
 
             box-shadow:
-                0 20px 70px
-                rgba(70, 45, 40, 0.09);
+                var(--shadow);
         }
 
 
@@ -437,7 +491,8 @@
 
         .date {
 
-            text-align: right;
+            text-align:
+                right;
 
             color:
                 var(--muted);
@@ -482,13 +537,13 @@
 
 
         /* =====================================================
-           АКЦЕНТИ
+           ДОПЪЛНИТЕЛНИ ТЕКСТОВИ СТИЛОВЕ
            ===================================================== */
 
         .soft {
 
             color:
-                var(--muted);
+                var(--text-soft);
 
             font-style:
                 italic;
@@ -508,7 +563,7 @@
         .pain {
 
             color:
-                #a9786e;
+                #9b7b72;
 
             font-style:
                 italic;
@@ -536,7 +591,7 @@
 
             border-left:
                 2px solid
-                var(--line);
+                var(--rose-soft);
 
             color:
                 var(--rose-dark);
@@ -550,7 +605,7 @@
 
 
         /* =====================================================
-           КРАТКИ СПИСЪЦИ
+           КРАТКИ ПАСАЖИ
            ===================================================== */
 
         .short p {
@@ -567,16 +622,19 @@
         .divider {
 
             width:
-                70px;
+                65px;
 
             height:
                 1px;
 
             background:
-                var(--line);
+                var(--gold-soft);
 
             margin:
                 50px auto;
+
+            opacity:
+                0.75;
         }
 
 
@@ -603,7 +661,7 @@
                 var(--rose-dark);
 
             font-size:
-                35px;
+                34px;
 
             font-style:
                 italic;
@@ -645,25 +703,27 @@
 
 
         /* =====================================================
-           АНИМАЦИЯ ПРИ СКРОЛ
+           АНИМАЦИЯ НА ТЕКСТА
            ===================================================== */
 
         .reveal {
 
-            opacity: 0;
+            opacity:
+                0;
 
             transform:
-                translateY(18px);
+                translateY(15px);
 
             transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
+                opacity 0.9s ease,
+                transform 0.9s ease;
         }
 
 
         .reveal.visible {
 
-            opacity: 1;
+            opacity:
+                1;
 
             transform:
                 translateY(0);
@@ -671,7 +731,7 @@
 
 
         /* =====================================================
-           МОБИЛНИ УСТРОЙСТВА
+           МОБИЛНА ВЕРСИЯ
            ===================================================== */
 
         @media (max-width: 650px) {
@@ -714,18 +774,29 @@
             }
 
 
+            .letter h2 {
+
+                font-size:
+                    30px;
+            }
+
+
+            blockquote {
+
+                font-size:
+                    21px;
+
+                padding-left:
+                    18px;
+            }
+
+
             .final-message {
 
                 font-size:
                     28px;
             }
 
-
-            .music-label {
-
-                display:
-                    none;
-            }
         }
 
 
@@ -742,8 +813,7 @@
             }
 
 
-            .hero-section,
-            .music-player {
+            .hero-section {
 
                 display:
                     none;
@@ -764,9 +834,11 @@
                 border:
                     none;
             }
+
         }
 
     </style>
+
 </head>
 
 
@@ -774,50 +846,34 @@
 
 
     <!-- =====================================================
-         МУЗИКАЛЕН ПЛЕЪР
+         СКРИТА ФОНОВА МУЗИКА
          ===================================================== -->
 
-    <div class="music-player">
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto">
 
-        <span
-            class="music-label"
-            id="musicLabel">
-            Музика
-        </span>
+        <source
+            src="melody.mp3"
+            type="audio/mpeg">
 
-        <button
-            id="musicButton"
-            aria-label="Пусни музиката">
-
-            ♫
-
-        </button>
-
-        <audio
-            id="backgroundMusic"
-            loop>
-
-            <source
-                src="melody.mp3"
-                type="audio/mpeg">
-
-        </audio>
-
-    </div>
+    </audio>
 
 
 
     <!-- =====================================================
-         НАЧАЛЕН ЕКРАН
+         НАЧАЛНА СТРАНИЦА
          ===================================================== -->
 
     <section class="hero-section">
 
         <div class="hero">
 
+
             <div class="ornament">
 
-                ✦ ✧ ✦
+                ✦ · ✧ · ✦
 
             </div>
 
@@ -833,7 +889,6 @@
 
                 Някои думи не са за да променят миналото.
                 <br>
-
                 Те са за да кажат истината за него.
 
             </div>
@@ -847,6 +902,7 @@
 
             </button>
 
+
         </div>
 
     </section>
@@ -854,7 +910,7 @@
 
 
     <!-- =====================================================
-         ПИСМОТО
+         ПИСМО
          ===================================================== -->
 
     <main
@@ -926,43 +982,31 @@
         </p>
 
 
-
         <div class="short">
 
             <p class="strong">
-
                 Аз бях до теб, когато имаше нужда от дом.
-
             </p>
 
             <p>
-
                 Бях до теб, когато имаше проблеми с родителите си,
                 с брат си и с други неща, които те натоварваха.
-
             </p>
 
             <p>
-
                 Бях до теб, когато имаше нужда от внимание.
-
             </p>
 
             <p>
-
                 Бях до теб, когато беше гладен или жаден.
-
             </p>
 
             <p>
-
                 Бях твой приятел в моментите, в които нещата
                 не бяха лесни.
-
             </p>
 
         </div>
-
 
 
         <p>
@@ -1069,7 +1113,6 @@
         </p>
 
 
-
         <p class="strong">
 
             Когато аз изпаднах в тежък период, ти си тръгна.
@@ -1091,7 +1134,6 @@
             може да си тръгне от живота ми почти без предупреждение.
 
         </p>
-
 
 
         <p class="strong">
@@ -1164,21 +1206,15 @@
         <div class="short">
 
             <p class="strong">
-
                 Ти ме извика.
-
             </p>
 
             <p class="strong">
-
                 Аз стоях два часа навън.
-
             </p>
 
             <p class="pain">
-
                 Накрая си тръгна.
-
             </p>
 
         </div>
@@ -1283,19 +1319,13 @@
         </p>
 
 
-
         <div class="short">
 
             <p>Беше дом.</p>
-
             <p>Беше храна.</p>
-
             <p>Беше грижа.</p>
-
             <p>Беше време.</p>
-
             <p>Беше подкрепа.</p>
-
             <p>Беше доверие.</p>
 
         </div>
@@ -1480,7 +1510,6 @@
             различия между нас.
 
         </p>
-
 
 
         <p>
@@ -1690,7 +1719,6 @@
         </p>
 
 
-
         <p class="strong">
 
             Но искам да знаеш едно.
@@ -1701,35 +1729,23 @@
         <div class="short">
 
             <p>
-
                 Зад всичко това не е стояла омраза.
-
             </p>
-
 
             <p class="pain">
-
                 Стояла е болка.
-
             </p>
-
 
             <p class="love">
-
                 Стояла е обич.
-
             </p>
 
-
             <p class="soft">
-
                 Стояло е разочарование от човек,
                 на когото съм вярвал.
-
             </p>
 
         </div>
-
 
 
         <p>
@@ -1741,30 +1757,22 @@
 
 
         <p>
-
             От „Бебчо“.
-
         </p>
 
 
         <p>
-
             От обещанията.
-
         </p>
 
 
         <p>
-
             От плановете.
-
         </p>
 
 
         <p>
-
             От усещането, че сме един до друг.
-
         </p>
 
 
@@ -1774,7 +1782,6 @@
             парите и слушалките.
 
         </p>
-
 
 
         <p>
@@ -1825,7 +1832,6 @@
             И ще запомня, че някога бяхме важни един за друг.
 
         </p>
-
 
 
         <p>
@@ -1913,6 +1919,9 @@
         </section>
 
 
+        <!-- =================================================
+             ПОДПИС
+             ================================================= -->
 
         <div class="signature">
 
@@ -1924,9 +1933,10 @@
         <div
             style="
                 text-align:right;
-                color:var(--gold);
+                color:var(--gold-soft);
                 font-size:12px;
-            ">
+            "
+        >
 
             ✦
 
@@ -1945,7 +1955,7 @@
 
 
         /* =====================================================
-           ОТВАРЯНЕ НА ПИСМОТО
+           ФУНКЦИЯ ЗА ОТВАРЯНЕ НА ПИСМОТО
            ===================================================== */
 
         function openLetter() {
@@ -1953,7 +1963,10 @@
             document
                 .getElementById("letter")
                 .scrollIntoView({
-                    behavior: "smooth"
+
+                    behavior:
+                        "smooth"
+
                 });
 
         }
@@ -1961,7 +1974,7 @@
 
 
         /* =====================================================
-           МУЗИКАЛЕН ПЛЕЪР
+           ФОНОВА МУЗИКА
            ===================================================== */
 
         const music =
@@ -1969,56 +1982,66 @@
                 "backgroundMusic"
             );
 
-        const musicButton =
-            document.getElementById(
-                "musicButton"
-            );
 
-        const musicLabel =
-            document.getElementById(
-                "musicLabel"
-            );
+        /*
+         * Много тиха начална сила.
+         * Музиката трябва да бъде фон,
+         * а не да надвиква писмото.
+         */
+
+        music.volume = 0.15;
 
 
-        musicButton.addEventListener(
-            "click",
-            function () {
 
-                if (
-                    music.paused
-                ) {
+        /* =====================================================
+           ОПИТ ЗА AUTOPLAY
+           ===================================================== */
 
-                    music
-                        .play()
-                        .then(function () {
+        window.addEventListener(
+            "load",
+            () => {
 
-                            musicButton.textContent =
-                                "❚❚";
+                music
+                    .play()
+                    .catch(() => {
 
-                            musicLabel.textContent =
-                                "Музика";
+                        /*
+                         * Ако браузърът блокира
+                         * автоматичното пускане,
+                         * чакаме първото действие
+                         * на посетителя.
+                         */
 
-                        })
-                        .catch(function () {
+                        const startMusic = () => {
 
-                            musicLabel.textContent =
-                                "Добави melody.mp3";
+                            music
+                                .play()
+                                .catch(() => {});
 
-                        });
+                        };
 
-                }
 
-                else {
+                        document.addEventListener(
+                            "click",
+                            startMusic,
+                            { once: true }
+                        );
 
-                    music.pause();
 
-                    musicButton.textContent =
-                        "♫";
+                        document.addEventListener(
+                            "touchstart",
+                            startMusic,
+                            { once: true }
+                        );
 
-                    musicLabel.textContent =
-                        "Музика";
 
-                }
+                        document.addEventListener(
+                            "keydown",
+                            startMusic,
+                            { once: true }
+                        );
+
+                    });
 
             }
         );
@@ -2026,7 +2049,7 @@
 
 
         /* =====================================================
-           АНИМАЦИЯ НА ТЕКСТА ПРИ СКРОЛ
+           ПЛАВНО ПОЯВЯВАНЕ НА ТЕКСТА
            ===================================================== */
 
         const elements =
@@ -2036,7 +2059,7 @@
 
 
         elements.forEach(
-            function (element) {
+            (element) => {
 
                 element.classList.add(
                     "reveal"
@@ -2046,58 +2069,109 @@
         );
 
 
+        /* =====================================================
+           OBSERVER ЗА SCROLL
+           ===================================================== */
+
         const observer =
             new IntersectionObserver(
 
-                function (entries) {
+                (entries) => {
 
                     entries.forEach(
-
-                        function (entry) {
+                        (entry) => {
 
                             if (
                                 entry.isIntersecting
                             ) {
 
-                                entry.target
+                                entry
+                                    .target
                                     .classList
-                                    .add("visible");
-
-                                observer
-                                    .unobserve(
-                                        entry.target
+                                    .add(
+                                        "visible"
                                     );
+
+
+                                observer.unobserve(
+                                    entry.target
+                                );
 
                             }
 
                         }
-
                     );
 
                 },
 
                 {
-                    threshold: 0.08
+                    threshold:
+                        0.08
                 }
 
             );
 
 
         elements.forEach(
-
-            function (element) {
+            (element) => {
 
                 observer.observe(
                     element
                 );
 
             }
-
         );
 
+
+
+        /* =====================================================
+           ПРИ КЛИК / ДОКОСВАНЕ
+           СТАРТИРАМЕ МУЗИКАТА,
+           АКО AUTOPLAY Е БИЛ БЛОКИРАН
+           ===================================================== */
+
+        function tryStartMusic() {
+
+            if (music.paused) {
+
+                music
+                    .play()
+                    .catch(() => {});
+
+            }
+
+        }
+
+
+        document.addEventListener(
+            "click",
+            tryStartMusic,
+            {
+                once: true
+            }
+        );
+
+
+        document.addEventListener(
+            "touchstart",
+            tryStartMusic,
+            {
+                once: true
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            tryStartMusic,
+            {
+                once: true
+            }
+        );
 
     </script>
 
 
 </body>
+
 </html>
