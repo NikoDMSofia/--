@@ -1235,7 +1235,19 @@
         }
       }
 
-    </style>
+    
+.memory-uploader{margin:70px auto 20px;padding:35px 25px;max-width:690px;text-align:center;border-top:1px solid rgba(139,30,45,.16)}
+.memory-uploader h3{margin:0 0 8px;color:#172A46;font-size:28px}
+.memory-uploader-note{color:#756963!important;font-style:italic}
+.memory-upload-button,.memory-post-button{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(139,30,45,.28);border-radius:999px;background:#F7F1E3;color:#8B1E2D;padding:11px 22px;font:600 18px "Cormorant Garamond",serif;cursor:pointer}
+.memory-upload-button:hover,.memory-post-button:hover{background:#8B1E2D;color:#F7F1E3}
+#memoryFileInput{display:none}.memory-compose{display:none;margin-top:24px;padding:18px;border-radius:18px;background:rgba(255,255,255,.35)}.memory-compose.active{display:block}
+.memory-preview{display:none;width:100%;max-height:480px;object-fit:contain;border-radius:14px;margin-bottom:17px}
+.memory-compose textarea{width:100%;min-height:110px;border:1px solid rgba(139,30,45,.18);border-radius:14px;background:rgba(247,241,227,.75);color:#172A46;padding:14px 16px;font:600 25px/1.35 "Caveat",cursive;margin-bottom:15px}
+.visitor-memory{margin:55px auto 0;max-width:650px;text-align:center}.visitor-memory img{display:block;width:100%;max-height:650px;object-fit:contain;border-radius:14px;cursor:zoom-in;box-shadow:0 18px 48px rgba(23,42,70,.14)}
+.visitor-memory-text{margin:22px auto 0!important;color:#8B1E2D!important;font:600 clamp(24px,3.6vw,32px)/1.32 "Caveat",cursive!important}.visitor-memory-date{margin-top:9px;color:#91817a;font-size:13px;font-style:italic}
+
+</style>
 <style id="love-letter-dancing-script-force">
   .love-letter-card,
   .love-letter-card *,
@@ -1800,6 +1812,20 @@
 <div class="love-letter-given-date">14.08.2026</div>
 </article>
 </div>
+
+<section class="memory-uploader" id="memoryUploader">
+  <h3>Добави свой спомен</h3>
+  <p class="memory-uploader-note">Избери снимка, напиши няколко думи към нея и я добави тук.</p>
+  <label class="memory-upload-button" for="memoryFileInput">＋ Качи снимка</label>
+  <input id="memoryFileInput" type="file" accept="image/*">
+  <div class="memory-compose" id="memoryCompose">
+    <img class="memory-preview" id="memoryPreview" alt="Преглед на снимката">
+    <textarea id="memoryCaptionInput" maxlength="700" placeholder="Напиши нещо към този спомен..."></textarea>
+    <button class="memory-post-button" id="memoryPostButton" type="button">♡ Публикувай спомена</button>
+  </div>
+  <div id="visitorMemories"></div>
+</section>
+
 <!-- =====================================================
          УГОЛЕМЕНА СНИМКА ОТ „СПОМЕНИ“
          ===================================================== -->
@@ -1906,7 +1932,7 @@
 
       const musicIcon = document.getElementById("musicIcon");
 
-      music.volume = 0.1;
+      music.volume = 0.08;
 
       function toggleMusic() {
         if (music.paused) {
@@ -2235,6 +2261,35 @@
         }
       });
 
-    </script>
+    
+const memoryFileInput=document.getElementById("memoryFileInput");
+const memoryCompose=document.getElementById("memoryCompose");
+const memoryPreview=document.getElementById("memoryPreview");
+const memoryCaptionInput=document.getElementById("memoryCaptionInput");
+const memoryPostButton=document.getElementById("memoryPostButton");
+const visitorMemories=document.getElementById("visitorMemories");
+let selectedMemoryImage="";
+memoryFileInput.addEventListener("change",function(){
+ const file=this.files&&this.files[0]; if(!file)return;
+ if(!file.type.startsWith("image/")){alert("Моля, избери снимка.");return;}
+ const reader=new FileReader();
+ reader.onload=e=>{selectedMemoryImage=e.target.result;memoryPreview.src=selectedMemoryImage;memoryPreview.style.display="block";memoryCompose.classList.add("active");};
+ reader.readAsDataURL(file);
+});
+memoryPostButton.addEventListener("click",function(){
+ const caption=memoryCaptionInput.value.trim();
+ if(!selectedMemoryImage){alert("Първо избери снимка.");return;}
+ if(!caption){alert("Напиши няколко думи към снимката.");return;}
+ const card=document.createElement("article");card.className="visitor-memory";
+ const image=document.createElement("img");image.src=selectedMemoryImage;image.alt="Добавен спомен";
+ const text=document.createElement("p");text.className="visitor-memory-text";text.textContent=caption;
+ const date=document.createElement("div");date.className="visitor-memory-date";date.textContent=new Date().toLocaleDateString("bg-BG");
+ card.append(image,text,date);visitorMemories.appendChild(card);
+ image.addEventListener("click",()=>openPhotoLightbox(image));
+ memoryFileInput.value="";memoryCaptionInput.value="";selectedMemoryImage="";memoryPreview.style.display="none";memoryCompose.classList.remove("active");
+ card.scrollIntoView({behavior:"smooth",block:"center"});
+});
+
+</script>
 </body>
 </html>
