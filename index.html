@@ -1247,7 +1247,168 @@
 .visitor-memory{margin:55px auto 0;max-width:650px;text-align:center}.visitor-memory img{display:block;width:100%;max-height:650px;object-fit:contain;border-radius:14px;cursor:zoom-in;box-shadow:0 18px 48px rgba(23,42,70,.14)}
 .visitor-memory-text{margin:22px auto 0!important;color:#8B1E2D!important;font:600 clamp(24px,3.6vw,32px)/1.32 "Caveat",cursive!important}.visitor-memory-date{margin-top:9px;color:#91817a;font-size:13px;font-style:italic}
 
-</style>
+
+      /* =====================================================
+           ЗВЕЗДИ — НЕЖНО МИГАНЕ В ЦВЕТОВЕТЕ НА САЙТА
+           ===================================================== */
+      .ornament {
+        animation:
+          floating 5s ease-in-out infinite,
+          starTwinkle 3.6s ease-in-out infinite;
+        text-shadow:
+          0 0 0 rgba(200, 170, 120, 0),
+          0 0 0 rgba(201, 154, 155, 0);
+      }
+
+      @keyframes starTwinkle {
+        0%, 100% {
+          color: var(--gold);
+          opacity: 0.72;
+          text-shadow:
+            0 0 4px rgba(200, 170, 120, 0.12),
+            0 0 10px rgba(200, 170, 120, 0.06);
+        }
+
+        35% {
+          color: var(--rose);
+          opacity: 0.94;
+          text-shadow:
+            0 0 7px rgba(201, 154, 155, 0.24),
+            0 0 14px rgba(201, 154, 155, 0.10);
+        }
+
+        65% {
+          color: var(--gold-soft);
+          opacity: 0.82;
+          text-shadow:
+            0 0 6px rgba(219, 201, 165, 0.22),
+            0 0 12px rgba(219, 201, 165, 0.08);
+        }
+      }
+
+    
+      /* Звездичката при подписа „Ники“ — същото нежно мигане */
+      .signature + .ornament,
+      .signature .ornament,
+      .signature-star,
+      .ending .ornament {
+        animation:
+          floating 5s ease-in-out infinite,
+          starTwinkle 3.6s ease-in-out infinite !important;
+      }
+
+    
+      /* Звездичката под „Ники“ — по-видимо, но меко пулсиране */
+      .signature + .ornament,
+      .signature .ornament,
+      .signature-star,
+      .ending .ornament {
+        animation:
+          floating 5s ease-in-out infinite,
+          signatureStarTwinkle 2.15s ease-in-out infinite !important;
+      }
+
+      @keyframes signatureStarTwinkle {
+        0%, 100% {
+          color: var(--gold);
+          opacity: 0.48;
+          transform: scale(0.92);
+          text-shadow:
+            0 0 3px rgba(200,170,120,.16),
+            0 0 7px rgba(200,170,120,.08);
+        }
+        35% {
+          color: var(--rose);
+          opacity: 1;
+          transform: scale(1.13);
+          text-shadow:
+            0 0 8px rgba(201,154,155,.55),
+            0 0 17px rgba(201,154,155,.28),
+            0 0 25px rgba(201,154,155,.12);
+        }
+        68% {
+          color: var(--gold-soft);
+          opacity: 0.72;
+          transform: scale(1.01);
+          text-shadow:
+            0 0 6px rgba(219,201,165,.38),
+            0 0 13px rgba(219,201,165,.18);
+        }
+      }
+
+    
+      /* Звездичката под „Ники“ — МАКСИМАЛНО видимо сияние НАД самата звезда */
+      .signature + .ornament,
+      .signature .ornament,
+      .signature-star,
+      .ending .ornament {
+        position: relative !important;
+        z-index: 20 !important;
+        overflow: visible !important;
+        isolation: isolate;
+        animation:
+          floating 5s ease-in-out infinite,
+          signatureStarMax 0.95s ease-in-out infinite !important;
+      }
+
+      .signature + .ornament::after,
+      .signature .ornament::after,
+      .signature-star::after,
+      .ending .ornament::after {
+        content: "✦";
+        position: absolute;
+        inset: 0;
+        z-index: 999 !important;
+        pointer-events: none;
+        color: #fff7df;
+        opacity: 0;
+        transform: scale(1);
+        filter: drop-shadow(0 0 4px #fff7df)
+                drop-shadow(0 0 10px #C8AA78)
+                drop-shadow(0 0 18px #8B1E2D);
+        animation: signatureStarOverlayFlash 0.95s ease-in-out infinite;
+      }
+
+      @keyframes signatureStarMax {
+        0%,100% {
+          color: #8B1E2D;
+          opacity: .35;
+          transform: scale(.86);
+          text-shadow: 0 0 2px rgba(139,30,45,.3);
+        }
+        45% {
+          color: #FFF7DF;
+          opacity: 1;
+          transform: scale(1.28);
+          text-shadow:
+            0 0 5px #FFF7DF,
+            0 0 10px #FFF7DF,
+            0 0 18px #C8AA78,
+            0 0 28px #C8AA78,
+            0 0 40px rgba(139,30,45,.95),
+            0 0 58px rgba(139,30,45,.70);
+        }
+      }
+
+      @keyframes signatureStarOverlayFlash {
+        0%,100% {
+          opacity: 0;
+          transform: scale(.75);
+          filter: blur(0px)
+                  drop-shadow(0 0 2px #FFF7DF);
+        }
+        42%,55% {
+          opacity: 1;
+          transform: scale(1.38);
+          filter: blur(.15px)
+                  drop-shadow(0 0 5px #FFF7DF)
+                  drop-shadow(0 0 12px #FFF7DF)
+                  drop-shadow(0 0 22px #C8AA78)
+                  drop-shadow(0 0 36px #8B1E2D);
+        }
+      }
+
+    </style>
 <style id="love-letter-dancing-script-force">
   .love-letter-card,
   .love-letter-card *,
@@ -1342,6 +1503,9 @@
          ===================================================== -->
 <audio id="backgroundMusic" loop="" preload="auto">
 <source src="melody.mp3" type="audio/mpeg"/>
+</audio>
+<audio id="loveLetterMusic" loop preload="auto">
+  <source src="love-letter-melody.mp3" type="audio/mpeg" />
 </audio>
 <!-- =====================================================
          ПАДАЩО МЕНЮ
@@ -1934,8 +2098,20 @@
 
       music.volume = 0.08;
 
+      /* =====================================================
+           AUDIO FIX — preload both melodies
+           ===================================================== */
+      const loveLetterMusic = document.getElementById("loveLetterMusic");
+      if (loveLetterMusic) {
+        loveLetterMusic.volume = 0.08;
+        loveLetterMusic.load();
+      }
+      music.volume = 0.08;
+      music.load();
+
+
       function toggleMusic() {
-        if (music.paused) {
+        if (music.paused && !document.body.classList.contains("love-letter-open")) {
           music
             .play()
             .then(() => {
@@ -2101,18 +2277,46 @@
       const loveLetterOverlay = document.getElementById("loveLetterOverlay");
       const loveLettersText = document.getElementById("loveLettersText");
 
+      let backgroundWasPlayingBeforeLoveLetter = false;
+
       function openLoveLetter() {
-        startLoveLetterMusic();
         closeMenu();
+
+        // Remember whether the main melody was active.
+        backgroundWasPlayingBeforeLoveLetter = !music.paused;
+
+        // Never play both melodies at the same time.
+        music.pause();
+
+        const loveMusic = document.getElementById("loveLetterMusic");
+        if (loveMusic) {
+          loveMusic.volume = 0.08;
+          loveMusic.currentTime = 0;
+          loveMusic.play().catch(() => {});
+        }
+
         loveLetterOverlay.classList.add("open");
         loveLetterOverlay.setAttribute("aria-hidden", "false");
         document.body.classList.add("love-letter-open");
       }
 
       function closeLoveLetter() {
+        const loveMusic = document.getElementById("loveLetterMusic");
+
+        if (loveMusic) {
+          loveMusic.pause();
+          loveMusic.currentTime = 0;
+        }
+
         loveLetterOverlay.classList.remove("open");
         loveLetterOverlay.setAttribute("aria-hidden", "true");
         document.body.classList.remove("love-letter-open");
+
+        // Restore the normal site melody only if it had been playing.
+        if (backgroundWasPlayingBeforeLoveLetter) {
+          music.volume = 0.08;
+          music.play().catch(() => {});
+        }
       }
 
       loveLetterOverlay.addEventListener("click", function(event) {
