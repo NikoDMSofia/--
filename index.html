@@ -2096,17 +2096,17 @@
 
       const musicIcon = document.getElementById("musicIcon");
 
-      music.volume = 0.08;
+      music.volume = 0.05;
 
       /* =====================================================
            AUDIO FIX — preload both melodies
            ===================================================== */
       const loveLetterMusic = document.getElementById("loveLetterMusic");
       if (loveLetterMusic) {
-        loveLetterMusic.volume = 0.08;
+        loveLetterMusic.volume = 0.05;
         loveLetterMusic.load();
       }
-      music.volume = 0.08;
+      music.volume = 0.05;
       music.load();
 
 
@@ -2290,7 +2290,7 @@
 
         const loveMusic = document.getElementById("loveLetterMusic");
         if (loveMusic) {
-          loveMusic.volume = 0.08;
+          loveMusic.volume = 0.05;
           loveMusic.currentTime = 0;
           loveMusic.play().catch(() => {});
         }
@@ -2314,7 +2314,7 @@
 
         // Restore the normal site melody only if it had been playing.
         if (backgroundWasPlayingBeforeLoveLetter) {
-          music.volume = 0.08;
+          music.volume = 0.05;
           music.play().catch(() => {});
         }
       }
